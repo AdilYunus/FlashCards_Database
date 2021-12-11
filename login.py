@@ -32,9 +32,9 @@ class Login(QtWidgets.QDialog):
         self.hash_password=h.hexdigest()
 
 
-        conn = psycopg2.connect(database="FlashCards",
+        conn = psycopg2.connect(database="flashcard",
                                 user="postgres",
-                                password="1234",
+                                password="12345",
                                 host="localhost",
                                 port="5432")
         cur = conn.cursor()
@@ -47,7 +47,7 @@ class Login(QtWidgets.QDialog):
             self.signup()
 
         else:
-            if user_veri[1] == str(self.password):
+            if user_veri[1] == str(self.hash_password):
                 self.cams = menu.Menu(self.user_name)
                 self.cams.show()
                 self.close()

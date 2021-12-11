@@ -50,9 +50,9 @@ class Menu(QtWidgets.QDialog):
         self.close()
 
     def total_progress(self):  # total progress for total level(database) -A
-        conn = psycopg2.connect(database="FlashCards",
+        conn = psycopg2.connect(database="flashcard",
                                 user="postgres",
-                                password="1234",
+                                password="12345",
                                 host="localhost",
                                 port="5432")
         cur = conn.cursor()
