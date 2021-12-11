@@ -95,9 +95,9 @@ class Game(QtWidgets.QDialog):
 
     def level_update(self):  # level and game time update -A
         # -------------------------------------------
-        conn = psycopg2.connect(database="FlashCards",
+        conn = psycopg2.connect(database="flashcard",
                                 user="postgres",
-                                password="1234",
+                                password="12345",
                                 host="localhost",
                                 port="5432")
         cur = conn.cursor()
@@ -185,9 +185,9 @@ class Game(QtWidgets.QDialog):
         self.levelNumber.setText(str(self.level))
         self.word_list = []
         # connect to database & load words
-        conn = psycopg2.connect(database="FlashCards",
+        conn = psycopg2.connect(database="flashcard",
                                 user="postgres",
-                                password="1234",
+                                password="12345",
                                 host="localhost",
                                 port="5432")
         cur = conn.cursor()
