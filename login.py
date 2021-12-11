@@ -3,6 +3,7 @@ import sys
 import os
 import menu
 import psycopg2
+import hashlib
 
 
 class Login(QtWidgets.QDialog):
@@ -25,6 +26,11 @@ class Login(QtWidgets.QDialog):
 
         self.user_name = self.lineEdit_username.text()
         self.password = self.lineEdit_password.text()
+
+        h=hashlib.md5()
+        h.update(self.password.encode("utf-8"))
+        self.hash_password=h.hexdigest()
+
 
         conn = psycopg2.connect(database="FlashCards",
                                 user="postgres",
