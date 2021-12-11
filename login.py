@@ -72,20 +72,12 @@ class Login(QtWidgets.QDialog):
             self.login_info.setText("Please enter your username")
 
         else:
-            conn = psycopg2.connect(database="FlashCards",
-                                    user="postgres",
-                                    password="1234",
-                                    host="localhost",
-                                    port="5432"
-                                    )
+            conn = psycopg2.connect("dbname=flashcard user=postgres password=12345")
             cur = conn.cursor()
-            cur.execute(f"INSERT INTO Players (player_name,player_password,player_level,player_time) \
-                        VALUES ('{self.user_name}', '{self.password}', 1, 0 )")
+            cur.execute('INSERT INTO Players VALUES(%s,%s,%s,%s)', (self.user_name,self.hash_password,1,0))
+            cur.close()
             conn.commit()
             conn.close()
-            self.cams = menu.Menu(self.user_name)
-            self.cams.show()
-            self.close()
 
     def cancel(self):  # quit
         self.close()
