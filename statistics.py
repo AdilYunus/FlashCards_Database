@@ -111,14 +111,14 @@ class Statistics(QtWidgets.QDialog):
             if i[0] == self.name:
                 my_score = i[2]
                 my_percent = i[1]
-        self.scoreRankingU.setText(f'You are {str(my_score)} th\ntotal score is {my_percent}% ')  # my position
+        self.scoreRankingU.setText(f'You are {str(my_score)} th\ntotal score is {my_percent}% ')  # my position--
         conn.commit()
         conn.close()
 
 
 
     def myinfo(self):
-        # connetct database and display info
+        # connetct database and display info ss
         conn = psycopg2.connect(database="FlashCards",
                                 user="postgres",
                                 password="1234",
