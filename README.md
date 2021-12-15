@@ -10,4 +10,7 @@
 ![Capa](https://github.com/AdilYunus/FlashCards_Database/blob/main/img/custompage.png?raw=true)
 -----------------------------------------------------------------------------------------
 ![Capa](https://github.com/AdilYunus/FlashCards_Database/blob/main/img/customgamepage.png?raw=true)
+-----------------------------------------------------------------------------------------
+![Capa](https://github.com/AdilYunus/FlashCards_Database/blob/main/img/ERD.png?raw=true)
+
 
