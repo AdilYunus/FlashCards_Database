@@ -47,7 +47,7 @@ class Login(QtWidgets.QDialog):
             self.signup()
 
         else:
-            if user_veri[1] == str(self.password):
+            if user_veri[1] == str(self.hash_password):
                 self.cams = menu.Menu(self.user_name)
                 self.cams.show()
                 self.close()
@@ -72,12 +72,22 @@ class Login(QtWidgets.QDialog):
             self.login_info.setText("Please enter your username")
 
         else:
-            conn = psycopg2.connect("dbname=flashcard user=postgres password=12345")
+            conn = psycopg2.connect(database="FlashCards",
+                                    user="postgres",
+                                    password="1234",
+                                    host="localhost",
+                                    port="5432"
+                                    )
             cur = conn.cursor()
-            cur.execute('INSERT INTO Players VALUES(%s,%s,%s,%s)', (self.user_name,self.hash_password,1,0))
-            cur.close()
+            cur.execute(f"INSERT INTO Players (player_name,player_password,player_level,player_time) \
+                        VALUES ('{self.user_name}', '{self.hash_password}', 1, 0 )")
+            cur.execute(f"INSERT INTO levels (player_name,level_id) \
+                        VALUES ('{self.user_name}', 1 )")
             conn.commit()
             conn.close()
+            self.cams = menu.Menu(self.user_name)
+            self.cams.show()
+            self.close()
 
     def cancel(self):  # quit
         self.close()
