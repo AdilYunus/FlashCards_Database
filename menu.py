@@ -2,8 +2,10 @@ from PyQt5 import QtWidgets, uic, QtCore
 
 import sys
 from game import Game
+from customgame import Customgame
 import psycopg2
 from statistics import Statistics
+from customlevel import Customlevel
 
 
 class Menu(QtWidgets.QDialog):
@@ -19,10 +21,7 @@ class Menu(QtWidgets.QDialog):
         self.quitButton_2.clicked.connect(self.quit)  # menu page-> quit -A
         self.setWindowFlag(QtCore.Qt.WindowCloseButtonHint, False)
 
-        # Calculate and display the levels that have been played -A
-        for i in range(1, self.level+1):
-            levels = str(i)
-            self.levelSelect.addItem(levels)  # display the levels
+        self.levelchoise()
 
         # en son geldigi level'i gosteriyor dropdown menu da -A
         self.levelSelect.setCurrentIndex(self.level-1)
@@ -33,19 +32,48 @@ class Menu(QtWidgets.QDialog):
 
         # after clicked go to statistics page
         self.staticsButton.clicked.connect(self.statistics)
+        self.customButton.clicked.connect(self.customlevel)
+        
         self.show()
 
     def play(self):
         self.getComboxBoxValue()
         self.getlevelvalue()
-        # self.level_1 = int(self.select_level)
-        self.cams = Game(self.name, self.select_level,
-                        self.count_t, self.select_value)
+        print(self.select_level)
+        conn = psycopg2.connect(database="FlashCards",
+                                user="postgres",
+                                password="1234",
+                                host="localhost",
+                                port="5432")
+        cur = conn.cursor()
+        cur.execute(f"""
+            SELECT level_id FROM levels where player_name ='{self.name}' ORDER BY level_id
+            """)        
+        my_levels = cur.fetchall()
+        level_list=[]
+        for i in my_levels:
+            level_list.append(str(i[0]))
+        if self.select_level in level_list:
+            
+            self.cams = Game(self.name, int(self.select_level),
+                            self.count_t, self.select_value)
+        else:
+            self.cams = Customgame(self.name, self.select_level,
+                            self.count_t, self.select_value)
         self.cams.show()
         self.close()
 
+        conn.commit()
+        conn.close()
+
+
     def statistics(self):
         self.cams = Statistics(self.name)
+        self.cams.show()
+        self.close()
+
+    def customlevel(self):
+        self.cams = Customlevel(self.name)
         self.cams.show()
         self.close()
 
@@ -60,8 +88,13 @@ class Menu(QtWidgets.QDialog):
             SELECT player_level,player_time from PLAYERS where player_name ='{self.name}'
             """)
         from_db = cur.fetchone()
+        # print(from_db)
         self.level = from_db[0]
         self.count_t = from_db[1]
+        
+
+        conn.commit()
+        conn.close()
         return self.level*100/250
 
 
@@ -74,4 +107,30 @@ class Menu(QtWidgets.QDialog):
 
     def getlevelvalue(self):
         # level select
-        self.select_level = int(self.levelSelect.currentText())
+        self.select_level = self.levelSelect.currentText()
+    
+    def levelchoise(self):
+        conn = psycopg2.connect(database="FlashCards",
+                                user="postgres",
+                                password="1234",
+                                host="localhost",
+                                port="5432")
+        cur = conn.cursor()
+        cur.execute(f"""
+            SELECT level_id FROM levels where player_name ='{self.name}' ORDER BY level_id
+            """)
+        my_levels = cur.fetchall()
+        for i in my_levels:
+            self.levelSelect.addItem(str(i[0]))
+        cur.execute(f"""
+            SELECT distinct level_name FROM custom_level where player_name ='{self.name}' ORDER BY level_name
+            """)
+        my_levels = cur.fetchall()
+        for i in my_levels:
+            self.levelSelect.addItem(str(i[0]))
+            
+        
+        
+        conn.commit()
+        conn.close()
+
