@@ -32,7 +32,21 @@
    <item row="0" column="0">
     <widget class="QWidget" name="widget" native="true">
      <property name="styleSheet">
-      <string notr="true">QPushButton#pushButton{
+      <string notr="true">QPushButton#customButton{
+	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+
+QPushButton#customButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
+}
+
+QPushButton#customButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(255,164,164,255);
+}
+QPushButton#pushButton{
 	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,255), stop:1 rgba(85,98,112,226));
 	color:rgba(255,255,255,210);
 	border-radius:5px
@@ -69,7 +83,6 @@ QPushButton#staticsButton{
 	border-radius:5px
 }
 
-
 QPushButton#staticsButton:hover{
 	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
 }
@@ -79,6 +92,8 @@ QPushButton#staticsButton:pressed{
 	padding-top:5px;
 	background-color:rgba(255,164,164,255);
 }
+
+
 
 
 QLabel#label_F_f:hover{
@@ -1305,7 +1320,7 @@ border-width: 5px;border-style: solid;border-color: rgb(77, 159, 232);background
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="labelStatistics">
       <property name="geometry">
        <rect>
         <x>782</x>
@@ -1325,6 +1340,41 @@ border-width: 5px;border-style: solid;border-color: rgb(77, 159, 232);background
       </property>
       <property name="text">
        <string>Statistics </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="customButton">
+      <property name="geometry">
+       <rect>
+        <x>56</x>
+        <y>363</y>
+        <width>146</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelStatistics_2">
+      <property name="geometry">
+       <rect>
+        <x>145</x>
+        <y>528</y>
+        <width>61</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(32, 109, 180);</string>
+      </property>
+      <property name="text">
+       <string>Custom</string>
       </property>
      </widget>
      <zorder>label</zorder>
@@ -1379,7 +1429,9 @@ border-width: 5px;border-style: solid;border-color: rgb(77, 159, 232);background
      <zorder>levelText</zorder>
      <zorder>levelSelect</zorder>
      <zorder>staticsButton</zorder>
-     <zorder>label_3</zorder>
+     <zorder>labelStatistics</zorder>
+     <zorder>labelStatistics_2</zorder>
+     <zorder>customButton</zorder>
     </widget>
    </item>
   </layout>

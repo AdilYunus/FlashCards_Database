@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, uic, QtGui, QtCore,QtTest
+from PyQt5 import QtWidgets, uic, QtGui, QtCore
 from PyQt5.QtCore import QTime, QTimer
 import menu
 import sys
@@ -6,7 +6,7 @@ import psycopg2
 from datetime import datetime
 
 
-class Game(QtWidgets.QDialog):
+class Customgame(QtWidgets.QDialog):
 
     def __init__(self, name, level, count_t, select_value):
         self.settime = select_value
@@ -15,7 +15,7 @@ class Game(QtWidgets.QDialog):
         self.count_t = count_t
         self.count_s = '00:00:00'
         self.count = int(self.settime)
-        super(Game, self).__init__()
+        super(Customgame, self).__init__()
         uic.loadUi('ui/game_screen.ui', self)
         # when click beck button call func. back
         self.quitButton.clicked.connect(self.back)
@@ -84,15 +84,14 @@ class Game(QtWidgets.QDialog):
         self.sleeptime.setText(str(self.count))
 
     def back(self):
-        self.level_update()  # call methode to level update -A
+        self.level_update() 
         self.cams = menu.Menu(self.name)
         self.cams.show()
         self.close()
 
     def exit(self):
-        self.level_update()
+        self.level_update() 
         self.close()
-
     def level_update(self):  # level and game time update -A
         # -------------------------------------------
         conn = psycopg2.connect(database="FlashCards",
@@ -101,31 +100,8 @@ class Game(QtWidgets.QDialog):
                                 host="localhost",
                                 port="5432")
         cur = conn.cursor()
-        cur.execute(f"""
-            SELECT player_level from PLAYERS where player_name ='{self.name}'
-            """)
-        level_x = cur.fetchone()
-        if level_x[0] < self.level:
-            cur.execute(
-                f"UPDATE PLAYERS set player_level = {self.level} where player_name ='{self.name}' ")
-            cur.execute(
+        cur.execute(
                 f"UPDATE PLAYERS set player_time = {self.count_t} where player_name ='{self.name}' ")
-            
-
-
-            cur.execute(f"""SELECT player_name,CAST(AVG(level_percent) AS INTEGER) avg_percent 
-                            FROM levels 
-                            WHERE player_name = '{self.name}' 
-                            GROUP BY player_name;""")
-            my_avg = cur.fetchone()
-            cur.execute(
-                f"""UPDATE PLAYERS set player_level = {self.level},average_percent = {my_avg[1]},player_time = {self.count_t}
-                where player_name ='{self.name}' """)
-
-        else:
-            cur.execute(
-                f"UPDATE PLAYERS set player_time = {self.count_t} where player_name ='{self.name}' ")
-
         conn.commit()
         conn.close()
 
@@ -144,13 +120,11 @@ class Game(QtWidgets.QDialog):
         if self.index > 20:
             self.c_false -= 1
 
-        if self.c_true == 20:  # if c_true = 20 level +1 and begin new level
+        if self.c_true == self.word_count:  # if c_true = 20 level +1 and begin new level
+            # self.back()
+            
 
-            self.percentupdate()
-            #self.level += 1
-            self.tebrik()#yeni eklendi
-
-            self.c_true = 0
+            # self.c_true = 0
             self.c_false = 0
 
             self.point2.setText(str(self.c_false))
@@ -159,15 +133,7 @@ class Game(QtWidgets.QDialog):
             self.progressBar_ingame.setProperty("value", self.c_true)
             self.index = 0
             self.word_list = []
-            if self.level == 251:
-                self.timer2.stop()
-                self.level = 1
-                self.index = 0
-                self.back()
-                self.close()
-            else:
-                # call methode for begin new level
-                self.load_words()
+            self.timer2.stop()
 
         else:
             # show dutch word
@@ -209,9 +175,14 @@ class Game(QtWidgets.QDialog):
                                 port="5432")
         cur = conn.cursor()
         cur.execute(f"""
-            SELECT dutch_word,english_word from "words" where word_level ={self.level} ORDER BY word_id LIMIT 20;
+            SELECT dutch_word,english_word
+            FROM custom_level WHERE CASE WHEN player_name ='{self.name}' and level_name ='{self.level}' then 0 else 1 end=0 ORDER BY id
             """)
+        num = cur.rowcount
+        self.progressBar_ingame.setMaximum(num)
+
         self.word_list = cur.fetchall()  # Select all rows from words table
+        self.word_count= cur.rowcount
         conn.commit()
         conn.close()
 
@@ -223,68 +194,3 @@ class Game(QtWidgets.QDialog):
         self.words.setText(self.word_list[self.index][0])
         self.language.setText('Nederlands')
 
-    def percentupdate(self):
-        conn = psycopg2.connect(database="FlashCards",
-                                user="postgres",
-                                password="1234",
-                                host="localhost",
-                                port="5432")
-        cur = conn.cursor()
-        cur.execute(f"""
-            SELECT player_level from PLAYERS where player_name ='{self.name}'
-            """)
-        level_x = cur.fetchone()
-
-        if level_x[0] == self.level:
-            # 1 updat levels table -click_count and percentage
-            # 2 insert new row to levels met level+=1 and nulls(click & percentage)
-            # 3 update players table player_level and time and AVG_percentage
-            cur.execute(
-                f"UPDATE levels set click_count = {self.index} where case when player_name ='{self.name}' and level_id = {self.level} then 0 else 1 end=0; ")
-            p = int(20/self.index*100)
-            cur.execute(
-                f"UPDATE levels set level_percent = {p} where case when player_name ='{self.name}' and level_id = {self.level} then 0 else 1 end=0; ")
-            self.level += 1
-            cur.execute(f"INSERT INTO levels (player_name,level_id) \
-                        VALUES ('{self.name}', {self.level} )")
-                        
-            
-        else:
-            # 1 select click_count,if index < click_count
-            # 2 update click_count and percentage
-            # 3 level+=1
-            cur.execute(f"""
-                select click_count from levels where case when level_id ={self.level} and player_name ='{self.name}' then 0 else 1 end=0;
-                """)
-            click_x = cur.fetchone()
-
-            if self.index < click_x[0]:
-                p = int(20/self.index*100)
-                cur.execute(
-                    f"""UPDATE LEVELS set click_count = {self.index}, level_percent = {p}
-                    where case when player_name ='{self.name}' and level_id = {self.level} then 0 else 1 end=0; """)
-                cur.execute(f"""SELECT player_name,CAST(AVG(level_percent) AS INTEGER) avg_percent 
-                            FROM levels 
-                            WHERE player_name = '{self.name}' 
-                            GROUP BY player_name;""")
-                my_avg = cur.fetchone()
-                cur.execute(
-                        f"""UPDATE PLAYERS set player_level = {self.level},average_percent = {my_avg[1]},player_time = {self.count_t}
-                        where player_name ='{self.name}' """)
-
-                self.level += 1
-                
-            else:
-                self.level += 1
-        conn.commit()
-        conn.close()
-
-    def tebrik(self):
-        self.pushButton_2.setEnabled(False)
-        self.pushButton.setEnabled(False)
-        self.timer2.start(1000)
-        self.count = int(self.settime)
-        self.sleeptime.setText(str(self.count))
-        # append words to last of list
-        self.point2.setText(str(0))
-        self.language.setText('Next')

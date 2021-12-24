@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Game</class>
+ <widget class="QWidget" name="Game">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>920</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>920</width>
+    <height>620</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>920</width>
+    <height>620</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>FlashCards</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#loadButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(100, 200,255, 250), stop:1 rgba(47, 119, 224, 0.8));
+	color:rgba(255,255,255,255);
+	border-radius:5px
+}
+
+QPushButton#loadButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(255,0,0,255), stop:1 rgba(150,123,1,255));
+}
+
+QPushButton#loadButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+QPushButton#quitButton{
+border-width: 5px;border-style: solid;border-color: rgb(150, 250, 5);background-color: rgb(25, 150, 200);	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+
+QPushButton#quitButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(255,0,0,255), stop:1 rgba(85,81,84,226));
+}
+
+QPushButton#quitButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+QPushButton#exitButton{
+border-width: 5px;border-style: solid;border-color: rgb(150, 250, 5);background-color: rgb(25, 150, 200);	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+
+QPushButton#exitButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(255,0,0,255), stop:1 rgba(85,81,84,226));
+}
+
+QPushButton#exitButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+QPushButton#settime{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(11,131,120,219), stop:1 rgba(85,98,112,226));
+	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+
+QPushButton#settime:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(150,123,11,219), stop:1 rgba(85,81,84,226));
+}
+
+QPushButton#settime:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+QLabel#lt_f:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
+}
+QLabel#lb_f:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
+}
+QLabel#rt_f:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
+
+}
+QLabel#rb_f:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
+
+}
+</string>
+     </property>
+     <widget class="QLabel" name="background">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>841</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255,255,255);
+border-top-right-radius: 25px;
+border-bottom-right-radius: 25px;
+border-top-left-radius: 25px;
+border-bottom-left-radius: 25px;</string>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="quitButton">
+      <property name="geometry">
+       <rect>
+        <x>706</x>
+        <y>57</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 25px;
+border-bottom-right-radius: 25px;
+border-top-left-radius: 25px;
+border-bottom-left-radius: 25px;
+</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fcard">
+      <property name="geometry">
+       <rect>
+        <x>325</x>
+        <y>140</y>
+        <width>250</width>
+        <height>400</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 40px;
+border-bottom-right-radius: 40px;
+border-top-left-radius: 40px;
+border-bottom-left-radius: 40px;
+border-width: 8px;border-style: solid;border-color: rgb(50, 179, 226);background-color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gameTime">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>240</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string>00:59:48</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="levelRanking1">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>210</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>1.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="levelRenking">
+      <property name="geometry">
+       <rect>
+        <x>55</x>
+        <y>160</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>Level Ranking</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="exitButton">
+      <property name="geometry">
+       <rect>
+        <x>772</x>
+        <y>57</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 25px;
+border-bottom-right-radius: 25px;
+border-top-left-radius: 25px;
+border-bottom-left-radius: 25px;
+</string>
+      </property>
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fcard_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>140</y>
+        <width>250</width>
+        <height>400</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 40px;
+border-bottom-right-radius: 40px;
+border-top-left-radius: 40px;
+border-bottom-left-radius: 40px;
+border-width: 8px;border-style: solid;border-color: rgb(255, 164, 164);background-color: rgb(199, 223, 100);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fcard_3">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>140</y>
+        <width>250</width>
+        <height>400</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 40px;
+border-bottom-right-radius: 40px;
+border-top-left-radius: 40px;
+border-bottom-left-radius: 40px;
+border-width: 8px;border-style: solid;border-color: rgb(201, 226, 101);background-color: rgb(255, 120, 164);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="success">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>160</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255,255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Scoreboard</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="achievements">
+      <property name="geometry">
+       <rect>
+        <x>605</x>
+        <y>160</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(25, 100, 200);</string>
+      </property>
+      <property name="text">
+       <string>Achievements </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="levelRanking2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>250</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>2.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="levelRanking3">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>290</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>3.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="levelRanking4">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>330</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>4.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="levelRanking5">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>370</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>5.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="levelRankingU">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>400</y>
+        <width>211</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>You are in the 80th position</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="scoreRankingU">
+      <property name="geometry">
+       <rect>
+        <x>345</x>
+        <y>420</y>
+        <width>211</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+</string>
+      </property>
+      <property name="text">
+       <string>You are in the 50th</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="scoreRanking3">
+      <property name="geometry">
+       <rect>
+        <x>345</x>
+        <y>290</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>3.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="scoreRanking1">
+      <property name="geometry">
+       <rect>
+        <x>345</x>
+        <y>210</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>1.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="scoreRanking2">
+      <property name="geometry">
+       <rect>
+        <x>345</x>
+        <y>250</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>2.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="scoreRanking5">
+      <property name="geometry">
+       <rect>
+        <x>345</x>
+        <y>370</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>5.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="scoreRanking4">
+      <property name="geometry">
+       <rect>
+        <x>345</x>
+        <y>330</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>4.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gameTime_2">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>240</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Total time</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="myLevel">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>270</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string>48/250</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gameTime_4">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>270</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Level</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="totalUser">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>480</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 128, 132);
+</string>
+      </property>
+      <property name="text">
+       <string>Total User :</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fcard_4">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>50</y>
+        <width>800</width>
+        <height>75</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 25px;
+border-bottom-right-radius: 25px;
+border-top-left-radius: 25px;
+border-bottom-left-radius: 25px;
+border-width: 6px;border-style: solid;border-color: rgb(77, 159, 232);background-color: rgb(92, 225, 230);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="statistics">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>60</y>
+        <width>221</width>
+        <height>55</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+color: rgb(255,252, 0);</string>
+      </property>
+      <property name="text">
+       <string>Statistics</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="userCount">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>480</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>49</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gameTime_5">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>210</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Player</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="userName">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>210</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string>4DATA</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="high_score">
+      <property name="geometry">
+       <rect>
+        <x>605</x>
+        <y>300</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Highest Score</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="low_score">
+      <property name="geometry">
+       <rect>
+        <x>605</x>
+        <y>370</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+</string>
+      </property>
+      <property name="text">
+       <string>Lowest Score</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="high_score1">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>340</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Level 99</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="low_score1">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>410</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Level 45</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="low_score2">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>410</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>50%</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="high_score2">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>340</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>99%</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="levelSelect">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>445</y>
+        <width>80</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>17</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 170, 255);</string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="slcPercent">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>480</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>%</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="slcLevel">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>480</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="toolTipDuration">
+       <number>-4</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>My level</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="loadButton">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>445</y>
+        <width>80</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius:10px;</string>
+      </property>
+      <property name="text">
+       <string>Load</string>
+      </property>
+     </widget>
+     <zorder>background</zorder>
+     <zorder>fcard_4</zorder>
+     <zorder>fcard_2</zorder>
+     <zorder>quitButton</zorder>
+     <zorder>fcard</zorder>
+     <zorder>exitButton</zorder>
+     <zorder>fcard_3</zorder>
+     <zorder>levelRenking</zorder>
+     <zorder>levelRanking1</zorder>
+     <zorder>success</zorder>
+     <zorder>achievements</zorder>
+     <zorder>levelRanking2</zorder>
+     <zorder>levelRanking3</zorder>
+     <zorder>levelRanking4</zorder>
+     <zorder>levelRanking5</zorder>
+     <zorder>levelRankingU</zorder>
+     <zorder>scoreRankingU</zorder>
+     <zorder>scoreRanking3</zorder>
+     <zorder>scoreRanking1</zorder>
+     <zorder>scoreRanking2</zorder>
+     <zorder>scoreRanking5</zorder>
+     <zorder>scoreRanking4</zorder>
+     <zorder>gameTime</zorder>
+     <zorder>gameTime_2</zorder>
+     <zorder>myLevel</zorder>
+     <zorder>gameTime_4</zorder>
+     <zorder>totalUser</zorder>
+     <zorder>statistics</zorder>
+     <zorder>userCount</zorder>
+     <zorder>gameTime_5</zorder>
+     <zorder>userName</zorder>
+     <zorder>high_score</zorder>
+     <zorder>low_score</zorder>
+     <zorder>high_score1</zorder>
+     <zorder>low_score1</zorder>
+     <zorder>low_score2</zorder>
+     <zorder>high_score2</zorder>
+     <zorder>levelSelect</zorder>
+     <zorder>slcPercent</zorder>
+     <zorder>slcLevel</zorder>
+     <zorder>loadButton</zorder>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

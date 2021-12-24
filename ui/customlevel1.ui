@@ -1,0 +1,1883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Game</class>
+ <widget class="QWidget" name="Game">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>920</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>920</width>
+    <height>620</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>920</width>
+    <height>620</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>FlashCards</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+QPushButton#deleteButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(100, 200,255, 250), stop:1 rgba(47, 119, 224, 0.8));
+	color:rgba(255,255,255,255);
+	border-radius:5px
+}
+
+QPushButton#deleteButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(255,0,0,255), stop:1 rgba(85,81,84,226));
+}
+
+QPushButton#deleteButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+
+QPushButton#clearButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(100, 200,255, 250), stop:1 rgba(47, 119, 224, 0.8));
+	color:rgba(255,255,255,255);
+	border-radius:5px
+}
+
+QPushButton#clearButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(255,0,0,255), stop:1 rgba(85,81,84,226));
+}
+
+QPushButton#clearButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+QPushButton#loadButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(100, 200,255, 250), stop:1 rgba(47, 119, 224, 0.8));
+	color:rgba(255,255,255,255);
+	border-radius:5px
+}
+
+QPushButton#loadButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(255,0,0,255), stop:1 rgba(150,123,1,255));
+}
+
+QPushButton#loadButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+
+QPushButton#uploadButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(100, 200,255, 250), stop:1 rgba(47, 119, 224, 0.8));
+	color:rgba(255,255,255,255);
+	border-radius:5px
+}
+
+QPushButton#uploadButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(255,0,0,255), stop:1 rgba(85,81,84,226));
+}
+
+QPushButton#uploadButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+QPushButton#quitButton{
+border-width: 5px;border-style: solid;border-color: rgb(150, 250, 5);background-color: rgb(25, 150, 200);	color:rgba(255,255,255,255);
+	border-radius:5px
+}
+
+QPushButton#quitButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(255,0,0,255), stop:1 rgba(85,81,84,226));
+}
+
+QPushButton#quitButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+QPushButton#exitButton{
+border-width: 5px;border-style: solid;border-color: rgb(150, 250, 5);background-color: rgb(25, 150, 200);	color:rgba(255,255,255,255);
+	border-radius:5px
+}
+
+QPushButton#exitButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(255,0,0,255), stop:1 rgba(85,81,84,226));
+}
+
+QPushButton#exitButton:pressed{
+	padding-left:5px;
+	padding-top:5px;
+	background-color:rgba(150,123,1,255);
+}
+
+QLabel#label_F_f:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
+}
+QLabel#label_F_f_3:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
+}
+
+QLabel#label_F_f_5:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
+}
+
+QLabel#label_F_f_4:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,85), stop:1 rgba(50,50,50,150));
+}
+</string>
+     </property>
+     <widget class="QLabel" name="background">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>841</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255,255,255);
+border-top-right-radius: 25px;
+border-bottom-right-radius: 25px;
+border-top-left-radius: 25px;
+border-bottom-left-radius: 25px;</string>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="quitButton">
+      <property name="geometry">
+       <rect>
+        <x>706</x>
+        <y>57</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 25px;
+border-bottom-right-radius: 25px;
+border-top-left-radius: 25px;
+border-bottom-left-radius: 25px;
+</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fcard">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>133</y>
+        <width>155</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+border-width: 8px;border-style: solid;border-color: rgb(50, 179, 226);background-color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord1">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>210</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>1.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="exitButton">
+      <property name="geometry">
+       <rect>
+        <x>772</x>
+        <y>57</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 25px;
+border-bottom-right-radius: 25px;
+border-top-left-radius: 25px;
+border-bottom-left-radius: 25px;
+</string>
+      </property>
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fcard_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>133</y>
+        <width>155</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+border-width: 8px;border-style: solid;border-color: rgb(255, 164, 164);background-color: rgb(199, 223, 100);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fcard_3">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>133</y>
+        <width>155</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+border-width: 8px;border-style: solid;border-color: rgb(201, 226, 101);background-color: rgb(255, 120, 164);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="english1">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>150</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255,255, 255);</string>
+      </property>
+      <property name="text">
+       <string>English</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord2">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>240</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>2.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord3">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>270</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>3.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord4">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>300</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>4.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord5">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>330</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>5.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutch1">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>150</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Dutch</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fcard_4">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>50</y>
+        <width>791</width>
+        <height>75</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 25px;
+border-bottom-right-radius: 25px;
+border-top-left-radius: 25px;
+border-bottom-left-radius: 25px;
+border-width: 6px;border-style: solid;border-color: rgb(77, 159, 232);background-color: rgb(92, 225, 230);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="statistics">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>60</y>
+        <width>781</width>
+        <height>55</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+color: rgb(255,252, 0);</string>
+      </property>
+      <property name="text">
+       <string>Custom Level Setting</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord10">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>480</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>10.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord9">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>450</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>9.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord6">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>360</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>6.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord7">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>390</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>7.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord8">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>420</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>8.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="customEN1">
+      <property name="geometry">
+       <rect>
+        <x>708</x>
+        <y>400</y>
+        <width>120</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="accessibleName">
+       <string/>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgba(0,0,0,255);
+background-color: rgb(145, 197, 206);
+font: 9pt &quot;Arial&quot;;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+border-width: 1px;border-style: solid;border-color: rgb(0, 0, 0);background-color: rgb(252, 255, 58);
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="dragEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string notr="true">EN 1</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="customNL1">
+      <property name="geometry">
+       <rect>
+        <x>708</x>
+        <y>370</y>
+        <width>120</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="accessibleName">
+       <string/>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;Arial&quot;;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+border-width: 1px;border-style: solid;border-color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="dragEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string notr="true">NL 1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="uploadButton">
+      <property name="geometry">
+       <rect>
+        <x>708</x>
+        <y>475</y>
+        <width>120</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius:10px;</string>
+      </property>
+      <property name="text">
+       <string>Upload</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_S_b">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>133</y>
+        <width>155</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+border-width: 8px;border-style: solid;border-color: rgb(255, 164, 164);background-color: rgb(199, 223, 100);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2A_b">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>133</y>
+        <width>155</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+border-width: 8px;border-style: solid;border-color: rgb(50, 179, 226);background-color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord10">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>480</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>10.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord4">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>300</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>4.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord7">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>390</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>7.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord5">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>330</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>5.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord9">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>450</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>9.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord6">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>360</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>6.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord8">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>420</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>8.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord1">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>210</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>1.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord2">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>240</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>2.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord3">
+      <property name="geometry">
+       <rect>
+        <x>223</x>
+        <y>270</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>3.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="customLevelname">
+      <property name="geometry">
+       <rect>
+        <x>708</x>
+        <y>430</y>
+        <width>120</width>
+        <height>35</height>
+       </rect>
+      </property>
+      <property name="accessibleName">
+       <string/>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgba(0,0,0,255);
+background-color: rgb(145, 197, 206);
+font: 9pt &quot;Arial&quot;;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+border-width: 1px;border-style: solid;border-color: rgb(0, 0, 0);background-color: rgb(255,255,255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="dragEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string notr="true">Custom level name</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord20">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>480</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>20.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord17">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>390</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>17.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord15">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>330</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>15.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutch2">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>150</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Dutch</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord13">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>270</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>13.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord12">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>240</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>12.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord12">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>240</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>12.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord19">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>450</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>19.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord18">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>420</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>18.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord14">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>300</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>14.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord16">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>360</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>16.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord16">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>360</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>16.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord14">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>300</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>14.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord15">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>330</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>15.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord13">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>270</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>13.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord18">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>420</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>18.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="english2">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>150</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255,255, 255);</string>
+      </property>
+      <property name="text">
+       <string>English</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord11">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>210</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>11.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="englishWord11">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>210</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 0);
+</string>
+      </property>
+      <property name="text">
+       <string>11.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord19">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>450</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>19.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord20">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>480</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>20.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="dutchWord17">
+      <property name="geometry">
+       <rect>
+        <x>383</x>
+        <y>390</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(3, 151, 157);</string>
+      </property>
+      <property name="text">
+       <string>17.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_F_f">
+      <property name="geometry">
+       <rect>
+        <x>58</x>
+        <y>140</y>
+        <width>139</width>
+        <height>396</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 23px;
+border-bottom-right-radius: 23px;
+border-top-left-radius: 23px;
+border-bottom-left-radius: 23px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_F_f_3">
+      <property name="geometry">
+       <rect>
+        <x>218</x>
+        <y>140</y>
+        <width>139</width>
+        <height>396</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 23px;
+border-bottom-right-radius: 23px;
+border-top-left-radius: 23px;
+border-bottom-left-radius: 23px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_F_f_4">
+      <property name="geometry">
+       <rect>
+        <x>538</x>
+        <y>140</y>
+        <width>139</width>
+        <height>396</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 23px;
+border-bottom-right-radius: 23px;
+border-top-left-radius: 23px;
+border-bottom-left-radius: 23px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_F_f_5">
+      <property name="geometry">
+       <rect>
+        <x>378</x>
+        <y>140</y>
+        <width>139</width>
+        <height>396</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 23px;
+border-bottom-right-radius: 23px;
+border-top-left-radius: 23px;
+border-bottom-left-radius: 23px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="levelSelect">
+      <property name="geometry">
+       <rect>
+        <x>708</x>
+        <y>160</y>
+        <width>120</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Impact</family>
+        <pointsize>17</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 170, 255);</string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="loadButton">
+      <property name="geometry">
+       <rect>
+        <x>708</x>
+        <y>200</y>
+        <width>120</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius:10px;</string>
+      </property>
+      <property name="text">
+       <string>Load</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="clearButton">
+      <property name="geometry">
+       <rect>
+        <x>708</x>
+        <y>250</y>
+        <width>120</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius:10px;</string>
+      </property>
+      <property name="text">
+       <string>Clear</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="deleteButton">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>300</y>
+        <width>120</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius:10px;</string>
+      </property>
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+     <zorder>background</zorder>
+     <zorder>fcard_4</zorder>
+     <zorder>fcard_2</zorder>
+     <zorder>fcard</zorder>
+     <zorder>fcard_3</zorder>
+     <zorder>dutchWord1</zorder>
+     <zorder>english1</zorder>
+     <zorder>dutchWord2</zorder>
+     <zorder>dutchWord3</zorder>
+     <zorder>dutchWord4</zorder>
+     <zorder>dutchWord5</zorder>
+     <zorder>dutch1</zorder>
+     <zorder>statistics</zorder>
+     <zorder>dutchWord10</zorder>
+     <zorder>dutchWord9</zorder>
+     <zorder>dutchWord6</zorder>
+     <zorder>dutchWord7</zorder>
+     <zorder>dutchWord8</zorder>
+     <zorder>customEN1</zorder>
+     <zorder>customNL1</zorder>
+     <zorder>uploadButton</zorder>
+     <zorder>label_S_b</zorder>
+     <zorder>label_2A_b</zorder>
+     <zorder>englishWord10</zorder>
+     <zorder>englishWord4</zorder>
+     <zorder>englishWord7</zorder>
+     <zorder>englishWord5</zorder>
+     <zorder>englishWord9</zorder>
+     <zorder>englishWord6</zorder>
+     <zorder>englishWord8</zorder>
+     <zorder>englishWord1</zorder>
+     <zorder>englishWord2</zorder>
+     <zorder>englishWord3</zorder>
+     <zorder>customLevelname</zorder>
+     <zorder>englishWord20</zorder>
+     <zorder>englishWord17</zorder>
+     <zorder>dutchWord15</zorder>
+     <zorder>dutch2</zorder>
+     <zorder>dutchWord13</zorder>
+     <zorder>englishWord12</zorder>
+     <zorder>dutchWord12</zorder>
+     <zorder>englishWord19</zorder>
+     <zorder>englishWord18</zorder>
+     <zorder>englishWord14</zorder>
+     <zorder>englishWord16</zorder>
+     <zorder>dutchWord16</zorder>
+     <zorder>dutchWord14</zorder>
+     <zorder>englishWord15</zorder>
+     <zorder>englishWord13</zorder>
+     <zorder>dutchWord18</zorder>
+     <zorder>english2</zorder>
+     <zorder>dutchWord11</zorder>
+     <zorder>englishWord11</zorder>
+     <zorder>dutchWord19</zorder>
+     <zorder>dutchWord20</zorder>
+     <zorder>dutchWord17</zorder>
+     <zorder>quitButton</zorder>
+     <zorder>exitButton</zorder>
+     <zorder>label_F_f</zorder>
+     <zorder>label_F_f_3</zorder>
+     <zorder>label_F_f_4</zorder>
+     <zorder>label_F_f_5</zorder>
+     <zorder>levelSelect</zorder>
+     <zorder>loadButton</zorder>
+     <zorder>clearButton</zorder>
+     <zorder>deleteButton</zorder>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>customNL1</tabstop>
+  <tabstop>customEN1</tabstop>
+  <tabstop>customLevelname</tabstop>
+  <tabstop>uploadButton</tabstop>
+  <tabstop>quitButton</tabstop>
+  <tabstop>exitButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

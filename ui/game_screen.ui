@@ -29,6 +29,9 @@
    <locale language="English" country="UnitedStates"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>9</number>
+   </property>
    <item row="0" column="0">
     <widget class="QWidget" name="widget" native="true">
      <property name="mouseTracking">
@@ -67,8 +70,8 @@ QPushButton#pushButton_2:pressed{
 	background-color:rgba(150,123,1,255);
 }
 QPushButton#quitButton{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,255), stop:1 rgba(85,98,112,226));
-	color:rgba(255,255,255,210);
+	border-width: 4px;border-style: solid;border-color: rgb(150, 250, 5);background-color: rgb(25, 150, 200);
+	color:rgba(255,255,255,240);
 	border-radius:5px
 }
 
@@ -82,8 +85,8 @@ QPushButton#quitButton:pressed{
 	background-color:rgba(150,123,1,255);
 }
 QPushButton#exitButton{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.50682, x2:1, y2:0.477, stop:0 rgba(0,0,0,255), stop:1 rgba(85,98,112,226));
-	color:rgba(255,255,255,210);
+	border-width: 4px;border-style: solid;border-color: rgb(150, 250, 5);background-color: rgb(25, 150, 200);
+	color:rgba(255,255,255,245);
 	border-radius:5px
 }
 
@@ -158,10 +161,10 @@ border-bottom-left-radius: 25px;</string>
      <widget class="QPushButton" name="quitButton">
       <property name="geometry">
        <rect>
-        <x>710</x>
+        <x>690</x>
         <y>45</y>
-        <width>61</width>
-        <height>50</height>
+        <width>60</width>
+        <height>60</height>
        </rect>
       </property>
       <property name="font">
@@ -169,6 +172,13 @@ border-bottom-left-radius: 25px;</string>
         <family>Arial Black</family>
         <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+</string>
       </property>
       <property name="text">
        <string>Back</string>
@@ -299,10 +309,10 @@ color: rgb(255, 255, 0);
      <widget class="QLabel" name="gameTime">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>80</x>
         <y>50</y>
-        <width>141</width>
-        <height>41</height>
+        <width>131</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="font">
@@ -327,7 +337,7 @@ color: rgb(255, 255, 0);
 </string>
       </property>
       <property name="text">
-       <string/>
+       <string>00:00:13</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -647,10 +657,10 @@ border-bottom-left-radius: 10px;</string>
      <widget class="QProgressBar" name="progressBar_ingame">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>225</x>
         <y>50</y>
-        <width>481</width>
-        <height>41</height>
+        <width>455</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="font">
@@ -660,16 +670,19 @@ border-bottom-left-radius: 10px;</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QProgressBar { 
-border: 2px solid grey; border-radius: 5px; background-color: #e2e2e2
-;}
-
-QProgressBar::chunk { background-color: #00aa00; width: 22px;margin:0.5px }
-
-
-QProgressBar { 
-border: 2px solid grey; border-radius: 5px; text-align: center;
-}</string>
+       <string notr="true">QProgressBar {
+	
+	background-color: rgb(41, 57, 91);
+	color: rgb(255, 255, 255);
+	border-style:none;
+	border-radius:12px;
+	text-align:center;
+}
+QProgressBar::chunk{
+	border-radius:11px;
+	background-color:qlineargradient(spread:pad,x1:0,y1:0.511364,x2:1,y2:0.523,stop:0 rgba(170,85,255,255),stop:1 rgba(0,235,235,235));
+}
+color: rgb(41, 57, 91);</string>
       </property>
       <property name="maximum">
        <number>20</number>
@@ -735,10 +748,10 @@ color: rgb(0, 0, 103);</string>
      <widget class="QPushButton" name="exitButton">
       <property name="geometry">
        <rect>
-        <x>780</x>
+        <x>765</x>
         <y>45</y>
-        <width>61</width>
-        <height>50</height>
+        <width>60</width>
+        <height>60</height>
        </rect>
       </property>
       <property name="font">
@@ -746,6 +759,9 @@ color: rgb(0, 0, 103);</string>
         <family>Arial Black</family>
         <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Exit</string>

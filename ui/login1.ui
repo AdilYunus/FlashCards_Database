@@ -1172,6 +1172,12 @@ border-width: 1px;border-style: solid;border-color: rgb(0, 0, 0);background-colo
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_username</tabstop>
+  <tabstop>lineEdit_password</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_2</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
